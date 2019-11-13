@@ -29,8 +29,28 @@
 
 @if (ViewBag.jobs != null)
 {
-
     <h3>@ViewBag.jobs.Count Result(s)</h3>
+    @foreach(Dictionary<string, string>job in ViewBag.jobs)
+    {
+        <table class="job-listing">
+            
+            @foreach (KeyValuePair<string, string>pair in job) //this loops through the k,v pair and places it in a row
+            {
+                <tr>
+                    <td>@pair.Key</td>
+                    <td>@pair.Value</td>
+                </tr>
+            }
+        
+
+        </table>
+    }
+
+
 
     // TODO #2 - Loop over jobs dictionary and display all job fields 
 }
+
+
+
+

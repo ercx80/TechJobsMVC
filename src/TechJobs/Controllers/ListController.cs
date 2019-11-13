@@ -27,14 +27,14 @@ namespace TechJobs.Controllers
             return View();
         }
 
-        public IActionResult Values(string column)
+        public IActionResult Values(string column)//this method is called when user clicks on a column link such as (skill, employer, location,etc)
         {
             if (column.Equals("all"))
             {
                 List<Dictionary<string, string>> jobs = JobData.FindAll();
                 ViewBag.title =  "All Jobs";
                 ViewBag.jobs = jobs;
-                return View("Jobs");
+                return View("Jobs");// this is the view it renders
             }
             else
             {
@@ -46,7 +46,7 @@ namespace TechJobs.Controllers
             }
         }
 
-        public IActionResult Jobs(string column, string value)
+        public IActionResult Jobs(string column, string value)//this method is called when user clicks on specific job
         {
             List<Dictionary<String, String>> jobs = JobData.FindByColumnAndValue(column, value);
             ViewBag.title = "Jobs with " + columnChoices[column] + ": " + value;
